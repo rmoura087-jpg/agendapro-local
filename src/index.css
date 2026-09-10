@@ -3,28 +3,51 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #111827;
-  background: #f8fafc;
+  color: #15151d;
+  background: #faf8f3;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
 button, input, select, textarea { font: inherit; }
 a { color: inherit; text-decoration: none; }
 
+::selection { background: #eccd8b; color: #15151d; }
+
+:focus-visible {
+  outline: 2px solid #b98328;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-sq px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
   }
-  .btn-primary { @apply btn bg-gray-900 text-white hover:bg-gray-800; }
-  .btn-secondary { @apply btn border border-gray-200 bg-white text-gray-700 hover:bg-gray-50; }
-  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .btn-primary { @apply btn bg-ink-900 text-paper hover:bg-ink-800 active:bg-ink-950; }
+  .btn-brass { @apply btn bg-brass-400 text-ink-900 hover:bg-brass-300 active:bg-brass-500; }
+  .btn-secondary { @apply btn border border-ink-100 bg-white text-ink-700 hover:border-ink-200 hover:bg-ink-50; }
+  .btn-ghost { @apply btn text-ink-500 hover:bg-ink-50 hover:text-ink-900; }
+  .btn-danger { @apply btn bg-clay-500 text-white hover:bg-clay-600; }
+
   .input {
-    @apply w-full rounded-xl border border-gray-200 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10;
+    @apply w-full rounded-sq border border-ink-100 bg-white px-3.5 py-2.5 text-sm text-ink-900 outline-none transition placeholder:text-ink-300 focus:border-brass-400 focus:ring-2 focus:ring-brass-100;
   }
-  .card { @apply rounded-2xl border border-gray-200 bg-white shadow-sm; }
-  .label { @apply mb-1.5 block text-sm font-medium text-gray-700; }
+  .label { @apply mb-1.5 block text-[13px] font-medium text-ink-500; }
+
+  .card { @apply rounded-2xl border border-ink-100 bg-white shadow-soft; }
+
+  .eyebrow { @apply text-[13px] font-semibold text-brass-500; }
 }

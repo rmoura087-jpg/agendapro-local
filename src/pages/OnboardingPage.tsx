@@ -28,15 +28,15 @@ export function OnboardingPage({ onDone }: { onDone: ()=>void }) {
     }
     onDone();nav("/app");
   }
-  return <div className="min-h-screen bg-gray-50 p-5"><div className="mx-auto max-w-xl pt-10">
-    <div className="mb-6"><div className="text-sm font-bold text-indigo-600">CONFIGURAÇÃO INICIAL</div><h1 className="mt-2 text-3xl font-black">Configure seu estabelecimento</h1><p className="mt-2 text-sm text-gray-500">Você poderá alterar tudo depois.</p></div>
+  return <div className="min-h-screen bg-ink-50 p-5"><div className="mx-auto max-w-xl pt-10">
+    <div className="mb-6"><div className="text-sm font-bold text-brass-500">CONFIGURAÇÃO INICIAL</div><h1 className="mt-2 text-3xl font-display font-medium">Configure seu estabelecimento</h1><p className="mt-2 text-sm text-ink-400">Você poderá alterar tudo depois.</p></div>
     <form className="card p-6" onSubmit={submit}><div className="grid gap-4">
       <div><label className="label">Nome</label><input className="input" value={name} onChange={e=>{setName(e.target.value);setSlug(slugify(e.target.value))}} required/></div>
-      <div><label className="label">Link público</label><div className="flex"><span className="rounded-l-xl border border-r-0 border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-500">/agendar/</span><input className="input rounded-l-none" value={slug} onChange={e=>setSlug(slugify(e.target.value))} required/></div></div>
+      <div><label className="label">Link público</label><div className="flex"><span className="rounded-l-xl border border-r-0 border-ink-100 bg-ink-50 px-3 py-2.5 text-sm text-ink-400">/agendar/</span><input className="input rounded-l-none" value={slug} onChange={e=>setSlug(slugify(e.target.value))} required/></div></div>
       <div className="grid gap-4 sm:grid-cols-2"><div><label className="label">WhatsApp</label><input className="input" value={phone} onChange={e=>setPhone(e.target.value)}/></div><div><label className="label">Cidade</label><input className="input" value={city} onChange={e=>setCity(e.target.value)}/></div></div>
       <div><label className="label">Segmento</label><select className="input" value={segment} onChange={e=>setSegment(e.target.value)}><option>Barbearia</option><option>Salão de beleza</option><option>Manicure</option><option>Estética</option><option>Tattoo</option><option>Outro</option></select></div>
     </div>
-    {error&&<div className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-700">{error}</div>}
+    {error&&<div className="mt-4 rounded-sq bg-clay-50 p-3 text-sm text-clay-600">{error}</div>}
     <button className="btn-primary mt-6 w-full" disabled={saving}>{saving?"Salvando...":"Concluir configuração"}</button>
     </form>
   </div></div>

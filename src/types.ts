@@ -13,6 +13,9 @@ export type Establishment = {
   cover_url: string | null;
   segment: string | null;
   plan: string;
+  plan_status?: string;
+  plan_renews_at?: string | null;
+  whatsapp_notify?: boolean;
 };
 
 export type Service = {
@@ -70,4 +73,21 @@ export type BusinessHour = {
   close_time: string;
   break_start: string | null;
   break_end: string | null;
+};
+
+export type CustomerAppointment = {
+  id: string;
+  appointment_date: string;
+  start_time: string;
+  end_time: string;
+  price: number;
+  status: string;
+  service_name: string;
+  professional_name: string;
+};
+
+export const PLAN_LABELS: Record<string, string> = {
+  free: "Grátis",
+  profissional: "Profissional",
+  studio: "Studio",
 };
